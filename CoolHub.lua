@@ -1,1 +1,614 @@
-local r=string.byte;local f=string.char;local c=string.sub;local s=table.concat;local l=table.insert;local b=math.ldexp;local R=getfenv or function()return _ENV end;local l=setmetatable;local h=select;local t=unpack or table.unpack;local i=tonumber;local function u(d)local e,n,a="","",{}local t=256;local o={}for l=0,t-1 do o[l]=f(l)end;local l=1;local function r()local e=i(c(d,l,l),36)l=l+1;local n=i(c(d,l,l+e-1),36)l=l+e;return n end;e=f(r())a[1]=e;while l<#d do local l=r()if o[l]then n=o[l]else n=e..c(e,1,1)end;o[t]=e..c(n,1,1)a[#a+1],e,t=n,n,t+1 end;return table.concat(a)end;local i=u('24Q24U27524T24K27524U25E25D25R25M26526226425J25C25L24T27427525L25R25F25N24T24P27926E26226226626H25N26224T23Z27925I27W26626524423L23L26625R27F25N25O27I23K25P25D25F23L26425R26123L26226825G26N26D25J25R25R24U24M27925824T27924V29127529524S27923Y29724U29529325827624U27M27929D24U29329K29O29929O29529529R29O275');local o=bit and bit.bxor or function(l,e)local n,o=1,0 while l>0 and e>0 do local a,c=l%2,e%2 if a~=c then o=o+n end l,e,n=(l-a)/2,(e-c)/2,n*2 end if l<e then l=e end while l>0 do local e=l%2 if e>0 then o=o+n end l,n=(l-e)/2,n*2 end return o end local function n(e,l,n)if n then local l=(e/2^(l-1))%2^((n-1)-(l-1)+1);return l-l%1;else local l=2^(l-1);return(e%(l+l)>=l)and 1 or 0;end;end;local l=1;local function e()local c,e,n,a=r(i,l,l+3);c=o(c,174)e=o(e,174)n=o(n,174)a=o(a,174)l=l+4;return(a*16777216)+(n*65536)+(e*256)+c;end;local function d()local e=o(r(i,l,l),174);l=l+1;return e;end;local function a()local n,e=r(i,l,l+2);n=o(n,174)e=o(e,174)l=l+2;return(e*256)+n;end;local function U()local l=e();local e=e();local c=1;local o=(n(e,1,20)*(2^32))+l;local l=n(e,21,31);local e=((-1)^n(e,32));if(l==0)then if(o==0)then return e*0;else l=1;c=0;end;elseif(l==2047)then return(o==0)and(e*(1/0))or(e*(0/0));end;return b(e,l-1023)*(c+(o/(2^52)));end;local b=e;local function u(e)local n;if(not e)then e=b();if(e==0)then return'';end;end;n=c(i,l,l+e-1);l=l+e;local e={}for l=1,#n do e[l]=f(o(r(c(n,l,l)),174))end return s(e);end;local l=e;local function b(...)return{...},h('#',...)end local function s()local f={};local r={};local l={};local i={f,r,nil,l};local l=e()local c={}for n=1,l do local e=d();local l;if(e==0)then l=(d()~=0);elseif(e==1)then l=U();elseif(e==3)then l=u();end;c[n]=l;end;i[3]=d();for r=1,e()do local l=d();if(n(l,1,1)==0)then local o=n(l,2,3);local t=n(l,4,6);local l={a(),a(),nil,nil};if(o==0)then l[3]=a();l[4]=a();elseif(o==1)then l[3]=e();elseif(o==2)then l[3]=e()-(2^16)elseif(o==3)then l[3]=e()-(2^16)l[4]=a();end;if(n(t,1,1)==1)then l[2]=c[l[2]]end if(n(t,2,2)==1)then l[3]=c[l[3]]end if(n(t,3,3)==1)then l[4]=c[l[4]]end f[r]=l;end end;for l=1,e()do r[l-1]=s();end;return i;end;local function U(l,e,d)local e=l[1];local n=l[2];local l=l[3];return function(...)local a=e;local e=n;local o=l;local f=b local n=1;local c=-1;local u={};local i={...};local r=h('#',...)-1;local l={};local e={};for l=0,r do if(l>=o)then u[l-o]=i[l+1];else e[l]=i[l+1];end;end;local l=r-o+1 local l;local o;while true do l=a[n];o=l[1];if o<=6 then if o<=2 then if o<=0 then local l=l[2]e[l]=e[l](t(e,l+1,c))elseif o>1 then local l=l[2]e[l]=e[l](t(e,l+1,c))else e[l[2]]();end;elseif o<=4 then if o==3 then local r;local u,h;local i;local o;e[l[2]]=d[l[3]];n=n+1;l=a[n];e[l[2]]=d[l[3]];n=n+1;l=a[n];o=l[2];i=e[l[3]];e[o+1]=i;e[o]=i[l[4]];n=n+1;l=a[n];e[l[2]]=l[3];n=n+1;l=a[n];o=l[2]u,h=f(e[o](t(e,o+1,l[3])))c=h+o-1 r=0;for l=o,c do r=r+1;e[l]=u[r];end;n=n+1;l=a[n];o=l[2]e[o]=e[o](t(e,o+1,c))n=n+1;l=a[n];e[l[2]]();n=n+1;l=a[n];do return end;else local n=l[2];local o=e[l[3]];e[n+1]=o;e[n]=o[l[4]];end;elseif o==5 then e[l[2]]=l[3];else local n=l[2]local o,l=f(e[n](t(e,n+1,l[3])))c=l+n-1 local l=0;for n=n,c do l=l+1;e[n]=o[l];end;end;elseif o<=10 then if o<=8 then if o>7 then do return end;else local n=l[2];local o=e[l[3]];e[n+1]=o;e[n]=o[l[4]];end;elseif o==9 then e[l[2]]();else local n=l[2]local o,l=f(e[n](t(e,n+1,l[3])))c=l+n-1 local l=0;for n=n,c do l=l+1;e[n]=o[l];end;end;elseif o<=12 then if o==11 then e[l[2]]=d[l[3]];else do return end;end;elseif o>13 then e[l[2]]=d[l[3]];else e[l[2]]=l[3];end;n=n+1;end;end;end;return U(s(),{},R())();
+if game.PlaceId == 8884433153 then -- Collect All Pets
+    getgenv().autofuseall = false
+    getgenv().PetOpen = false
+    getgenv().autocollect = false
+    getgenv().orbs = false
+    getgenv().autoClaimEgg = false
+    getgenv().autoSkipPetScreen = false
+    getgenv().autoBuyDamage = false
+    getgenv().autoBuyDropRate = false
+    getgenv().autoBuyCollectionRange = false
+    getgenv().autoEquipBestPet = false
+    getgenv().autoquest = false
+    getgenv().autocrystal = false
+    local autopetunlock = "false"
+    local waitforselectpet = 20
+    local waitfortp = 1
+    local selectedpet = "None"
+    local fuse_equipped = false
+    local player = game:GetService("Players").LocalPlayer
+    codes = {"shipwrecked", "SpeedPlayzTree", "ImFlying", "FFR", "FinalForm", "Shinier", "Massproduction", "ProsperousGrounds", "MountIn", "OneOutOfEight", "MusketeersAndAmigos", "OneZero", "AndIThinkToMyself", "SeasonsAndAMovie", "LookOut", "InfiniteLoop", "BurgersandFries", "Metallic", "GenAutoCalc", "Plasmatic_Void", "eaglenight222", "CrazyDiamond", "Viper_Toffi", "Unihorns", "Meerkat", "ChocolateMilk", "CommonLoon", "Sub2PHMittens", "MrPocket", "FusionIndy", "Amebas", "ToPointOh", "Buttertom_1m", "FromTheMachine"}
+ 
+ 
+    function ClaimCodes()
+        for i, v in ipairs(codes) do
+            wait()
+            pprint("claimed code: "..v)
+ 
+            local A_1 = v
+            local Event = game:GetService("ReplicatedStorage").Remotes.RedeemCode
+            Event:FireServer(A_1)
+        end
+    end
+ 
+    function autoEquipBestPet()
+        spawn(function()
+            while getgenv().autoEquipBestPet == true do
+                local Event = game:GetService("ReplicatedStorage").Remotes.EquipBest
+                Event:FireServer()
+                wait(waitforselectpet)
+            end
+        end)
+    end
+ 
+    function autoBuyCollectionRange()
+        spawn(function()
+            while getgenv().autoBuyCollectionRange == true do
+                local Event = game:GetService("ReplicatedStorage").Remotes.BuyStatIncrease
+                Event:FireServer("DropCollectionRange")
+                wait(1)
+            end
+        end)
+    end
+ 
+    function autoBuyDropRate()
+        spawn(function()
+            while getgenv().autoBuyDropRate == true do
+                local Event = game:GetService("ReplicatedStorage").Remotes.BuyStatIncrease
+                Event:FireServer("DropRate")
+                wait(1)
+            end
+        end)
+    end
+ 
+    function autoBuyDamage()
+        spawn(function()
+            while getgenv().autoBuyDamage == true do
+                local Event = game:GetService("ReplicatedStorage").Remotes.BuyStatIncrease
+                Event:FireServer("Damage")
+                wait(1)
+            end
+        end)
+    end
+ 
+    function zona(zona)
+        local Event = game:GetService("ReplicatedStorage").Remotes.SetLockedArea
+        Event:FireServer(zona)
+    end
+ 
+    function autoSkipPetScreen()
+        spawn(function()
+            while getgenv().autoSkipPetScreen == true do
+                wait()
+                if game.Players.LocalPlayer.PlayerGui.ScreenGui.Hatcher.Visible == true then
+ 
+                game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.E,false,game)
+ 
+                end
+            end
+        end)
+    end
+ 
+    function autoClaimEgg()
+        spawn(function()
+            while getgenv().autoClaimEgg == true do
+                local Event = game:GetService("ReplicatedStorage").Remotes.ClaimDailyEgg
+                Event:FireServer()
+                wait(10)
+            end
+        end)
+    end
+ 
+    function autoOrb()
+        spawn(function()
+            while getgenv().orbs == true do
+                for _,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+                    if v:IsA"Model" and v.Parent.Name == "Drops" then
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Base.CFrame
+                    end
+                end
+                wait(waitfortp)
+            end
+        end)
+    end
+ 
+    function fuseall(equipped)
+        spawn(function()
+            local A_1 = 
+            {
+                [1] = true, 
+                [2] = true, 
+                [3] = true, 
+                [4] = true, 
+                [5] = true, 
+                [6] = true, 
+                [7] = true, 
+                [8] = equipped
+            }
+            local Event = game:GetService("ReplicatedStorage").Remotes.AutoFuse
+            Event:FireServer(A_1)
+            wait(1)
+ 
+        end)
+    end
+ 
+    function autofuseall()
+        spawn(function()
+            while getgenv().autofuseall == true do
+                local A_1 = 
+                {
+                    [1] = true, 
+                    [2] = true, 
+                    [3] = true, 
+                    [4] = true, 
+                    [5] = true, 
+                    [6] = true, 
+                    [7] = true, 
+                    [8] = fuse_equipped
+                }
+                local Event = game:GetService("ReplicatedStorage").Remotes.AutoFuse
+                Event:FireServer(A_1)
+                wait(1)
+            end     
+        end)
+    end
+ 
+    function PetOpen(PetOpenType)
+        spawn(function()
+            while getgenv().PetOpen == true do
+                wait()
+                local Event = game:GetService("ReplicatedStorage").Remotes.BuyEgg
+                Event:FireServer(PetOpenType)
+            end
+        end)
+    end
+ 
+    function openOnePet(PetOpenType)
+        local GenerationSpeedTier = player:WaitForChild("GenerationSpeedTier").Value
+        if GenerationSpeedTier > 0 then
+            game:GetService("ReplicatedStorage").Remotes.SetGeneratorEgg:FireServer(PetOpenType)
+            game:GetService("ReplicatedStorage").Remotes.SetGeneratorOn:FireServer(true)
+            wait(0.1)
+            game:GetService("ReplicatedStorage").Remotes.SetGeneratorOn:FireServer(false)
+        else
+            game:GetService("ReplicatedStorage").Remotes.BuyEgg:FireServer(PetOpenType)
+ 
+        end
+    end
+ 
+    function nokick()
+        game:GetService("StarterGui"):SetCore("SendNotification",{
+            Title = "Cool Hub - Anti Afk", 
+            Text = "Activated.", 
+            Duration = 5;
+        })
+ 
+        local bb = game:service "VirtualUser"
+        game:service "Players".LocalPlayer.Idled:connect(
+        function()
+        bb:CaptureController()
+        bb:ClickButton2(Vector2.new())
+        end)
+    end
+ 
+    function panicbutton()
+        getgenv().autofuseall = false;
+        getgenv().PetOpen = false;
+        getgenv().autocollect = false;
+        getgenv().orbs = false;
+        getgenv().autoClaimEgg = false;
+        getgenv().autoSkipPetScreen = false;
+        getgenv().autoBuyDamage = false;
+        getgenv().autoBuyDropRate = false;
+        getgenv().autoBuyCollectionRange = false;
+        getgenv().autoEquipBestPet = false;
+        getgenv().autoquest = false;
+ 
+        game:GetService("StarterGui"):SetCore("SendNotification",{
+            Title = "Cool Hub - Panic", 
+            Text = "All hacks are now deactivated.", 
+            Duration = 5;
+        })
+ 
+    end
+ 
+    function autoquest()
+        spawn(function()
+            while getgenv().autoquest == true do
+                wait()
+                local zonadaselezionare = player:WaitForChild("QuestArea").Value
+                local questtask = player:WaitForChild("QuestTask").Value
+                local playerUnLockedArea = player:WaitForChild("UnlockedArea").Value
+ 
+                local Event = game:GetService("ReplicatedStorage").Remotes.ClaimQuestReward -- claim quest
+                Event:FireServer()
+ 
+ 
+                if zonadaselezionare == 0 then
+ 
+                    if questtask == 1 then -- get drops
+ 
+                        zona(playerUnLockedArea)
+ 
+                    elseif questtask == 2 then
+ 
+                        zona(playerUnLockedArea)
+ 
+                     elseif questtask == 3 then 
+ 
+                        zona(1)
+ 
+                    else
+                        pprint("!! error on quest decoding !!")
+                    end
+                else
+                    if questtask == 4 then
+ 
+                        if zonadaselezionare == 4 then --leggendary from epics
+ 
+                            local Event = game:GetService("ReplicatedStorage").Remotes.BuyEgg
+                            Event:FireServer(4)
+ 
+                        elseif zonadaselezionare == 5 then -- prodiguis from leggendary
+ 
+                            local Event = game:GetService("ReplicatedStorage").Remotes.BuyEgg
+                            Event:FireServer(5)
+ 
+                        elseif zonadaselezionare == 6 then -- ashended from prodigius
+ 
+                            local Event = game:GetService("ReplicatedStorage").Remotes.BuyEgg
+                            Event:FireServer(6)
+ 
+                        end
+                        zona(playerUnLockedArea)
+                    else
+                        zona(zonadaselezionare)
+                    end
+                    wait(1)
+                end
+            end
+        end)
+    end
+ 
+    function autopetunlockk()
+        spawn(function()
+            while autopetunlock == "true" do
+                wait()
+                --get unlocked
+                local Message = game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.Left.Checklist[1].DiscoveredLabel.Text local SplitMessage = string.split(Message, " / ") local common1, common2 = SplitMessage[1], SplitMessage[2] --get common
+                local Message = game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.Left.Checklist[2].DiscoveredLabel.Text local SplitMessage = string.split(Message, " / ") local uncommon1, uncommon2 = SplitMessage[1], SplitMessage[2] --get uncommon
+                local Message = game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.Left.Checklist[3].DiscoveredLabel.Text local SplitMessage = string.split(Message, " / ") local rare1, rare2 = SplitMessage[1], SplitMessage[2] --get rare
+                local Message = game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.Left.Checklist[4].DiscoveredLabel.Text local SplitMessage = string.split(Message, " / ") local epic1, epic2 = SplitMessage[1], SplitMessage[2] --get epic
+                local Message = game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.Left.Checklist[5].DiscoveredLabel.Text local SplitMessage = string.split(Message, " / ") local leggendary1, leggendary2 = SplitMessage[1], SplitMessage[2] --get leggendary
+                local Message = game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.Left.Checklist[6].DiscoveredLabel.Text local SplitMessage = string.split(Message, " / ") local prodigius1, prodigius2 = SplitMessage[1], SplitMessage[2] --get prodigius
+                local Message = game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.Left.Checklist[7].DiscoveredLabel.Text local SplitMessage = string.split(Message, " / ") local ashended1, ashended2 = SplitMessage[1], SplitMessage[2] --get ashended
+                local Message = game.Players.LocalPlayer.PlayerGui.ScreenGui.Main.Left.Checklist[8].DiscoveredLabel.Text local SplitMessage = string.split(Message, " / ") local mityc1, mityc2 = SplitMessage[1], SplitMessage[2] --get mityc
+ 
+                local has_auto_fuse_all = game:GetService("Workspace").UpgradeTree.OneTimers.Automation_Station.Wires:WaitForChild("Wire").Color
+                if common1 ~= common2 then
+                    openOnePet(1)
+                elseif uncommon1 ~= uncommon2 then
+                    openOnePet(2)
+                elseif rare1 ~= rare2 then
+                    openOnePet(3)
+                elseif epic1 ~= epic2 then
+                    openOnePet(4)
+                elseif leggendary1 ~= leggendary2 then
+                    openOnePet(5)
+                elseif prodigius1 ~= prodigius2 then
+                    openOnePet(6)
+                elseif ashended1 ~= ashended2 or mityc1 ~= mityc2 then
+                    openOnePet(6)
+                    if has_auto_fuse_all == "Bright green" then
+                        game:GetService("ReplicatedStorage").Remotes.SetAutoFuse:FireServer(true)
+                    else
+                        fuseall(false)
+                    end
+                end
+            end
+        end)
+    end
+ 
+    function autocrystal()
+        spawn(function()
+            while getgenv().autocrystal == true do
+                wait(2)
+                local playerUnLockedArea = player:WaitForChild("UnlockedArea").Value
+                local folder = game.Workspace.Crystals.Super:GetChildren()
+                for i, v in pairs(folder) do
+                    local zonacrystal = v:FindFirstChild("Area").Value
+                    if zonacrystal <= playerUnLockedArea then
+                        zona(zonacrystal)
+                    end
+                end
+                pprint(playerUnLockedArea)
+                pprint(zonacrystal)
+            end
+        end)
+    end
+ 
+    function pprint(txt)
+        print("[Cool Hub]: "..txt)
+    end
+ 
+    function comma_value(amount)
+        local formatted = amount
+        while true do  
+            formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
+                if (k==0) then
+                    break
+                end
+            end
+        return formatted
+    end
+ 
+    -- Gui
+ 
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Collect all pets - Cool Hub", "GrapeTheme")
+ 
+ 
+    local Tab = Window:NewTab("--> Info")
+        local Section = Tab:NewSection("--> Tab")
+ 
+        Section:NewButton("Anti Afk", "Enables the anti afk script (Remade by me)", function()
+            nokick()
+        end)  
+ 
+        Section:NewButton("Claim Codes", "Claims the game codes", function()
+            ClaimCodes()
+        end)
+ 
+        Section:NewLabel("Auto fuse works only if you have the gamepass")
+ 
+        Section:NewKeybind("Hidegui key", "This is for hide the gui", Enum.KeyCode.V, function()
+            Library:ToggleUI()
+        end)
+ 
+        Section:NewKeybind("Panic Button", "Use this to disable the hacks in one key  (anti afk not included)", Enum.KeyCode.P, function()
+            panicbutton()
+        end)  
+ 
+        Section:NewLabel("Have fun :D, or i will find you.")
+ 
+ 
+    local Tab = Window:NewTab("--> Auto Farming")
+ 
+        local Section = Tab:NewSection("--> Auto Farming")
+ 
+            Section:NewToggle("Auto Quest", "Does zone quests automaticly", function(state)
+                getgenv().autoquest = state
+                autoquest();
+            end)
+ 
+            Section:NewToggle("Auto Claim Egg", "Auto claims daily egg", function(state)
+                getgenv().autoClaimEgg = state
+                autoClaimEgg();
+            end)
+ 
+            Section:NewToggle("Auto Skip Pet Screen", "Auto Skips The Pet Unlock Screen", function(state)
+                getgenv().autoSkipPetScreen = state
+                autoSkipPetScreen();
+            end)
+ 
+        local Section = Tab:NewSection("--> Auto Collect Coin") -- auto collect coin
+ 
+            label1 = Section:NewLabel("Current delay: "..waitfortp.." (s)")
+            Section:NewToggle("Auto Collect Coin", "Auto Collects Coins", function(state)
+                getgenv().orbs = state
+                autoOrb();
+            end)
+ 
+            Section:NewTextBox("Teleport Delay (s)", "Time delay to teleport to another coin in seconds", function(txt)
+	            waitfortp = txt
+                label1:UpdateLabel("Current delay: "..waitfortp.." (s)")
+             end)
+ 
+ 
+        local Section = Tab:NewSection("--> Auto Select Pet") -- auto best pet
+ 
+            label2 = Section:NewLabel("Current delay: "..waitforselectpet.." (s)")
+            Section:NewToggle("Auto Select Pets", "Auto Seclets Bests Pets", function(state)
+                getgenv().autoEquipBestPet = state
+                autoEquipBestPet();
+            end)
+ 
+            Section:NewTextBox("Select Delay (s)", "Time delay the equip of the best pets", function(txt)
+	            waitforselectpet = txt
+                label2:UpdateLabel("Current delay: "..waitforselectpet.." (s)")
+             end)
+ 
+    local Tab = Window:NewTab("--> Eggs")
+ 
+        local Section = Tab:NewSection("--> Auto Open Eggs") -- auto open eggs
+ 
+        Section:NewToggle("Open Selected Egg", "Opens The Egg That You Selested", function(state)
+ 
+            local LocalPet = 0
+            if selectedpet == "Common" then
+                LocalPet = 1
+            elseif selectedpet == "Uncommon" then
+                LocalPet = 2
+            elseif selectedpet == "Rare" then
+                LocalPet = 3
+            elseif selectedpet == "Epic" then
+                LocalPet = 4
+            elseif selectedpet == "Leggendary" then
+                LocalPet = 5
+            elseif selectedpet == "Prodigius" then
+                LocalPet = 6     
+            else 
+                game:GetService("StarterGui"):SetCore("SendNotification",{
+                    Title = "Cool Hub - Auto Open Eggs", 
+                    Text = "Select The Pet To open First", 
+                    Duration = 5;
+                })
+            end
+            getgenv().PetOpen = state
+            PetOpen(LocalPet);
+ 
+        end)
+ 
+        Section:NewDropdown("Select Egg", "Lets you select the egg the you wont to open", {"Common", "Uncommon", "Rare", "Epic", "Leggendary", "Prodigius"}, function(currentOption)
+            selectedpet = currentOption
+        end)
+    local Tab = Window:NewTab("--> Zone Select")
+ 
+        local Section = Tab:NewSection("--> Zone Select") -- select zone
+ 
+        Section:NewButton("The Plain", "Sets the selected zone to The Plain", function()
+            zona(1)
+        end)
+ 
+        Section:NewButton("The Forest", "Sets the selected zone to The Forest", function()
+            zona(2)
+        end)
+ 
+        Section:NewButton("The Desert", "Sets the selected zone to The Desert", function()
+            zona(3)
+        end)
+ 
+        Section:NewButton("The Artic", "Sets the selected zone to The Artic", function()
+            zona(4)
+        end)
+ 
+        Section:NewButton("The Beach", "Sets the selected zone to The Beach", function()
+            zona(5)
+        end)
+ 
+        Section:NewButton("The Mountain", "Sets the selected zone to The Mountain", function()
+            zona(6)
+        end)
+ 
+        Section:NewButton("The Jungle", "Sets the selected zone to The Jungle", function()
+            zona(7)
+        end)
+ 
+        Section:NewButton("The Grotto", "Sets the selected zone to The Grotto", function()
+            zona(8)
+        end)
+ 
+    local Tab = Window:NewTab("--> Auto Buy")
+ 
+        local Section = Tab:NewSection("--> Auto Buy") -- auto buy
+ 
+            Section:NewToggle("Damage", "Auto buy Damage", function(state)
+                getgenv().autoBuyDamage = state
+                autoBuyDamage();
+            end)
+ 
+            Section:NewToggle("Drop Rate", "Auto Buy Drop Rate", function(state)
+                getgenv().autoBuyDropRate = state
+                autoBuyDropRate();
+            end)
+ 
+            Section:NewToggle("Collection Range", "Auto Buy Collection Range", function(state)
+                getgenv().autoBuyCollectionRange = state
+                autoBuyCollectionRange();
+            end)
+ 
+    local Tab = Window:NewTab("--> Auto Fuse")
+ 
+        local Section = Tab:NewSection("--> Gamepass Auto Fuse") -- auto gamepass fuse
+ 
+            Section:NewToggle("Fuse All", "Fuse All Pests if you have the gamepass", function(state)
+                getgenv().autofuseall = state
+                autofuseall();
+            end)
+ 
+            Section:NewToggle("Fuse Equipped Pets", "Equiped pets Fuses With Fuse All", function(state)
+                if state == true then
+                    fuse_equipped = true
+                else
+                    fuse_equipped = false
+                end
+            end)
+ 
+    local Tab = Window:NewTab("--> Auto Crystal")
+ 
+        local Section = Tab:NewSection("--> Auto Crystal")
+ 
+            Section:NewToggle("Auto Crystal", "Does super crystal auto", function(state)
+                getgenv().autocrystal = state
+                autocrystal();
+            end)
+ 
+    local Tab = Window:NewTab("--> Auto Rebirth")
+ 
+        local Section = Tab:NewSection("--> Auto Rebirth")
+ 
+            label1 = Section:NewLabel("Active: "..autopetunlock.."")
+ 
+            Section:NewKeybind("Enable Auto rebirth", "Enables auto rebirth", Enum.KeyCode.B, function()
+                if autopetunlock == "true" then
+                    autopetunlock = "false"                    
+                else
+                    autopetunlock = "true"
+                end
+                label1:UpdateLabel("Active: "..autopetunlock.."")
+                autopetunlockk()
+            end)
+ 
+ 
+ 
+    pprint("loaded.")
+    nokick()
+ 
+elseif game.Players.LocalPlayer.UserId == 2292187340 then -- Clicker simulator
+ 
+    -- Gui
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Enrico's script - Cool Hub", "GrapeTheme")
+ 
+ 
+    local Tab = Window:NewTab("Main")
+    local Section = Tab:NewSection("Main")
+        local txt_pagamento = Section:NewLabel("Caricamento...")
+        Section:NewButton("Teletrasportati", "clicca per teletrasportarti", function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Zones.Magic.teleport.CFrame -- teleport to zone
+        end)
+        Section:NewKeybind("Chiudi e apri questa scheda con il tasto", "Che guardi???!!!", Enum.KeyCode.V, function()
+            Library:ToggleUI()
+        end)
+ 
+ 
+ 
+    print("gui loaded.")
+    local bb = game:service "VirtualUser"
+    game:service "Players".LocalPlayer.Idled:connect(
+    function()
+        bb:CaptureController()
+        bb:ClickButton2(Vector2.new())
+    end)
+ 
+    while true do
+        loadstring(game:HttpGet("https://pastebin.com/raw/FMGA9T2n"))()
+        if kick == true then --se il pagamento è attivo
+ 
+            da_pagare = (money_day * giorni_passati) + 7000 + (money_update * updates)
+            totale_pagato = 0
+            for i,v in pairs(pagato) do
+                totale_pagato = v + totale_pagato
+            end
+            soldi = totale_pagato - da_pagare
+            calcola_giorni = math.floor((soldi / money_day) + 0.5)
+            if soldi >= 0 then
+                txt_pagamento:UpdateLabel("Hai: "..soldi.." $".." Ovvero "..calcola_giorni.." Giorni") --update txt
+            else
+                game.Players.LocalPlayer:Kick("Devi a marco: "..(soldi * -1).."$") -- kick
+            end
+ 
+        elseif kick == false then -- se il pagamento no è attivo
+            txt_pagamento:UpdateLabel("Per adesso il pagamento è sospeso da marco.") --update txt
+        end
+        wait()
+    end
+ 
+ 
+else
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+    Title = "Cool Hub - Error", 
+    Text = "Game Not Supported yet.", 
+    Duration = 5;
+    })
+end
