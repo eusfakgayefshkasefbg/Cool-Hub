@@ -565,7 +565,7 @@ elseif game.Players.LocalPlayer.UserId == 2292187340 then -- Clicker simulator
     local Section = Tab:NewSection("Main")
         local txt_pagamento = Section:NewLabel("Caricamento...")
         Section:NewButton("Teletrasportati", "clicca per teletrasportarti", function()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Zones.Magic.teleport.CFrame -- teleport to zone
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Zones.Dragon.teleport.CFrame -- teleport to zone
         end)
         Section:NewKeybind("Chiudi e apri questa scheda con il tasto", "Che guardi???!!!", Enum.KeyCode.V, function()
             Library:ToggleUI()
